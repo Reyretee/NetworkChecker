@@ -2,3 +2,9 @@ name: NetworkChecker
 version: '1.0-SNAPSHOT'
 main: me.reyretee.networkChecker.NetworkChecker
 api-version: '1.20'
+commands:
+  networkchecker:
+    description: NetworkChecker komutları
+    usage: /networkchecker reload
+    permission: networkchecker.reload
+    permission-message: "Bu komutu kullanmak için izniniz yok!"
