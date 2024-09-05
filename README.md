@@ -22,8 +22,8 @@ Aşağıda `config.yml` dosyasında yapılandırılabilecek ayarlar bulunmaktad�
 
 ```yaml
 bot:
-  ip: "127.0.0.1"         # Bot'un IP adresi
-  port: 25567             # Bot'un portu
+  ip: "127.0.0.1"         # Botun IP adresi
+  port: 25567             # Botun portu
   interval: 300           # Ping verisinin gönderileceği aralık (saniye cinsinden)
    ```
 
