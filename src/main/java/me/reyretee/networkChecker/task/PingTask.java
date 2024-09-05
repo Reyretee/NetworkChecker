@@ -1,27 +1,42 @@
 package me.reyretee.networkChecker.task;
 
 import me.reyretee.networkChecker.network.SocketClient;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.TimerTask;
+import java.util.logging.Logger;
 
 public class PingTask extends TimerTask {
-    private final Plugin plugin;
-    public PingTask(Plugin plugin) {
+
+    private final JavaPlugin plugin;
+    private final SocketClient socketClient;
+    private final Logger logger;
+
+    public PingTask(JavaPlugin plugin, SocketClient socketClient) {
         this.plugin = plugin;
+        this.socketClient = socketClient;
+        this.logger = plugin.getLogger();
     }
+
     @Override
     public void run() {
-        StringBuilder data = new StringBuilder();
-        for (Player player : Bukkit.getOnlinePlayers()){
-            data.append(player.getName()).append(":").append(player.getPing()).append("\n");
+        try {
+            StringBuilder pingData = new StringBuilder();
+            for (Player player : plugin.getServer().getOnlinePlayers()) {
+                int ping = player.getPing();
+                pingData.append(player.getName()).append(":").append(ping).append("\n");
+            }
+
+            if (pingData.length() > 0) {
+                socketClient.sendData(pingData.toString());
+                logger.info("Ping verisi bota gönderildi.");
+            } else {
+                logger.warning("Ping verisi gönderilecek oyuncu bulunamadı.");
+            }
+
+        } catch (Exception e) {
+            logger.severe("Ping verisi alınırken veya gönderilirken bir hata oluştu: " + e.getMessage());
         }
-
-        SocketClient client = new SocketClient("VPS_IP", 25565);
-
-        client.sendData(data.toString());
     }
-
 }
