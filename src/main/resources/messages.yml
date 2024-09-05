@@ -1,0 +1,3 @@
+messages:
+  reload_success: "&aAyarlar başarıyla yeniden yüklendi!"
+  reload_fail: "&cAyarlar yeniden yüklenirken bir hata oluştu!"
