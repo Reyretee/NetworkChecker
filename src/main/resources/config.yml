@@ -1,2 +1,4 @@
-vps_ip: "127.0.0.1"
-vps_port: 5000
+bot:
+  ip: "127.0.0.1" # Botun çalıştığı IP adresi.
+  port: 25567
+  interval: 300 # Saniye cinsinden ping değerinin gönderileceği aralık.
