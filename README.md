@@ -35,17 +35,17 @@ messages:
   reload_fail: "&cAn error occurred while reloading settings!"
    ```
 
-## Komutlar
+## Commands
 
 `/networkchecker reload`
 
 This command reloads the `config.yml` and `messages.yml` files and updates the plugin's configuration.
 
-## Örnek Kullanım
+## Example Usage
 1. After starting the server, edit your configuration files `(config.yml and messages.yml)`.
 2. Update the interval value in the `config.yml` file to change how frequently ping data is sent.
 3. Use the `/networkchecker` reload command to apply your changes.
 
-## Sorun Giderme
+## Troubleshooting
 1. Connection Issues: If you can't connect to the bot, ensure that the IP address and port settings are correct. Also, make sure the bot is running and listening on the correct port.
 2. Configuration Errors: Ensure your configuration files are formatted correctly. Errors can be checked with log messages printed to the console.
