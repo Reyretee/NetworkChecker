@@ -1,51 +1,51 @@
 # NetworkChecker
 
-`NetworkChecker` Minecraft sunucusu için bir eklentidir. Bu eklenti, sunucu oyuncularının ping verilerini düzenli aralıklarla bir Python botuna gönderir ve botun çalışıp çalışmadığını kontrol eder. Ayrıca, eklenti çeşitli yapılandırma ayarları ve özelleştirilebilir mesajlar sağlar.
+`NetworkChecker` is a plugin for Minecraft servers. This plugin sends player ping data to a Python bot at regular intervals and checks if the bot is running. It also provides various configuration settings and customizable messages.
 
-## Özellikler
+## Features
 
-- **Ping Verisi Gönderme**: Oyuncu ping verilerini düzenli aralıklarla belirlenen bir IP adresine ve portuna gönderir.
-- **Yeniden Yükleme Komutu**: Sunucuyu yeniden başlatmadan konfigürasyon ayarlarını yeniden yüklemek için `/networkchecker reload` komutu.
-- **Mesaj Özelleştirme**: Özelleştirilebilir mesajlar için `messages.yml` dosyası desteği.
+- **Ping Data Sending**: Sends player ping data at regular intervals to a specified IP address and port.
+- **Reload Command**: `/networkchecker reload` command to reload configuration settings without restarting the server.
+- **Message Customization**: Support for customizable messages via the `messages.yml` file.
 
-## Kurulum
+## Installation
 
-1. `NetworkChecker` eklentisini [buradan](https://github.com/Reyretee/NetworkChecker/releases/tag/NEW) indirin.
-2. İndirdiğiniz `.jar` dosyasını Minecraft sunucunuzun `plugins` dizinine yükleyin.
-3. Sunucunuzu başlatın veya yeniden başlatın.
+1. Download the `NetworkChecker` plugin [here](https://github.com/Reyretee/NetworkChecker/releases/tag/NEW).
+2. Upload the downloaded `.jar` file to the `plugins` directory of your Minecraft server.
+3. Start or restart your server.
 
-## Konfigürasyon
+## Configuration
 
 ### `config.yml`
 
-Aşağıda `config.yml` dosyasında yapılandırılabilecek ayarlar bulunmaktadır:
+The following settings can be configured in the `config.yml` file:
 
 ```yaml
 bot:
-  ip: "127.0.0.1"         # Botun IP adresi
-  port: 25567             # Botun portu
-  interval: 300           # Ping verisinin gönderileceği aralık (saniye cinsinden)
+  ip: "127.0.0.1"         # IP address of the bot
+  port: 25567             # Port of the bot
+  interval: 300           # Interval for sending ping data (in seconds)
    ```
 
 ### `messages.yml`
-Aşağıda `messages.yml` dosyasında yapılandırılabilecek mesajlar bulunmaktadır:
+The following messages can be configured in the `messages.yml` file:
 ```yaml
 messages:
-reload_success: "&aAyarlar başarıyla yeniden yüklendi!"
-reload_fail: "&cAyarlar yeniden yüklenirken bir hata oluştu!"
+  reload_success: "&aSettings successfully reloaded!"
+  reload_fail: "&cAn error occurred while reloading settings!"
    ```
 
 ## Komutlar
 
 `/networkchecker reload`
 
-Bu komut, `config.yml` ve `messages.yml` dosyalarını yeniden yükler ve eklentinin yapılandırmasını günceller.
+This command reloads the `config.yml` and `messages.yml` files and updates the plugin's configuration.
 
 ## Örnek Kullanım
-1. Sunucu başlatıldıktan sonra, yapılandırma dosyalarınızı `(config.yml ve messages.yml)` düzenleyin.
-2. Ping verisinin gönderilme sıklığını değiştirmek için `config.yml` dosyasındaki interval değerini güncelleyin.
-3. Değişikliklerinizi uygulamak için `/networkchecker reload` komutunu kullanın.
+1. After starting the server, edit your configuration files `(config.yml and messages.yml)`.
+2. Update the interval value in the `config.yml` file to change how frequently ping data is sent.
+3. Use the `/networkchecker` reload command to apply your changes.
 
 ## Sorun Giderme
-1. Bağlantı Sorunları: Eğer bot'a bağlanamıyorsanız, IP adresi ve port ayarlarının doğru olduğundan emin olun. Ayrıca, bot'un çalıştığından ve doğru portta dinlediğinden emin olun.
-2. Konfigürasyon Hataları: Yapılandırma dosyalarınızı doğru formatta düzenlediğinizden emin olun. Hatalar, konsola yazdırılan log mesajlarıyla kontrol edilebilir.
+1. Connection Issues: If you can't connect to the bot, ensure that the IP address and port settings are correct. Also, make sure the bot is running and listening on the correct port.
+2. Configuration Errors: Ensure your configuration files are formatted correctly. Errors can be checked with log messages printed to the console.
